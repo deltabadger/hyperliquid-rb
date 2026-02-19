@@ -7,6 +7,7 @@ require_relative "hyperliquid/utils"
 require_relative "hyperliquid/cloid"
 require_relative "hyperliquid/transport"
 require_relative "hyperliquid/signer"
+require_relative "hyperliquid/websocket_manager"
 require_relative "hyperliquid/info"
 require_relative "hyperliquid/exchange"
 

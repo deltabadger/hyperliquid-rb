@@ -40,6 +40,17 @@ module Hyperliquid
       sign_typed_data(typed_data)
     end
 
+    # Sign a multi-sig action envelope.
+    # The inner action hash is used with the SendMultiSig type.
+    def sign_multi_sig_action(action, nonce:, vault_address: nil, expires_after: nil)
+      inner_action = action["payload"]["action"]
+      inner_hash = action_hash(inner_action, nonce: nonce, vault_address: vault_address, expires_after: expires_after)
+
+      phantom = { source: (@is_mainnet ? "a" : "b"), connectionId: inner_hash }
+      typed_data = build_agent_typed_data(phantom)
+      sign_typed_data(typed_data)
+    end
+
     # Compute the action hash for L1 actions.
     # msgpack(action) + nonce(8B) + vault_flag(1B) + [vault_addr(20B)] + [0x00 + expires(8B)]
     def action_hash(action, nonce:, vault_address: nil, expires_after: nil)

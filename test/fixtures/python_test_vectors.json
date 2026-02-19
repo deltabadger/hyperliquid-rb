@@ -1,0 +1,1919 @@
+{
+  "float_to_wire": [
+    {
+      "input": 0,
+      "output": "0"
+    },
+    {
+      "input": 1,
+      "output": "1"
+    },
+    {
+      "input": 100,
+      "output": "100"
+    },
+    {
+      "input": 1800.0,
+      "output": "1800"
+    },
+    {
+      "input": 1670.1,
+      "output": "1670.1"
+    },
+    {
+      "input": 0.0147,
+      "output": "0.0147"
+    },
+    {
+      "input": 1.23456789,
+      "output": "1.23456789"
+    },
+    {
+      "input": 1e-08,
+      "output": "0.00000001"
+    },
+    {
+      "input": 99999999.0,
+      "output": "99999999"
+    },
+    {
+      "input": 0.1,
+      "output": "0.1"
+    },
+    {
+      "input": 0.01,
+      "output": "0.01"
+    },
+    {
+      "input": 0.001,
+      "output": "0.001"
+    },
+    {
+      "input": 10.5,
+      "output": "10.5"
+    },
+    {
+      "input": 100.00000001,
+      "output": "100.00000001"
+    },
+    {
+      "input": 42.0,
+      "output": "42"
+    },
+    {
+      "input": 1234.5678,
+      "output": "1234.5678"
+    },
+    {
+      "input": 1.234e-05,
+      "output": "0.00001234"
+    },
+    {
+      "input": 50.5,
+      "output": "50.5"
+    },
+    {
+      "input": 200.0,
+      "output": "200"
+    },
+    {
+      "input": 0.12345678,
+      "output": "0.12345678"
+    }
+  ],
+  "float_to_int_for_hashing": [
+    {
+      "input": 0,
+      "output": 0
+    },
+    {
+      "input": 1,
+      "output": 100000000
+    },
+    {
+      "input": 100,
+      "output": 10000000000
+    },
+    {
+      "input": 1800.0,
+      "output": 180000000000
+    },
+    {
+      "input": 1670.1,
+      "output": 167010000000
+    },
+    {
+      "input": 0.0147,
+      "output": 1470000
+    },
+    {
+      "input": 1e-08,
+      "output": 1
+    },
+    {
+      "input": 99999999.0,
+      "output": 9999999900000000
+    },
+    {
+      "input": 42.5,
+      "output": 4250000000
+    },
+    {
+      "input": 1234.5678,
+      "output": 123456780000
+    }
+  ],
+  "float_to_usd_int": [
+    {
+      "input": 0,
+      "output": 0
+    },
+    {
+      "input": 1,
+      "output": 1000000
+    },
+    {
+      "input": 100,
+      "output": 100000000
+    },
+    {
+      "input": 100.0,
+      "output": 100000000
+    },
+    {
+      "input": 50.5,
+      "output": 50500000
+    },
+    {
+      "input": 200.123456,
+      "output": 200123456
+    },
+    {
+      "input": 1e-06,
+      "output": 1
+    }
+  ],
+  "order_type_to_wire": [
+    {
+      "input": {
+        "limit": {
+          "tif": "Gtc"
+        }
+      },
+      "output": {
+        "limit": {
+          "tif": "Gtc"
+        }
+      }
+    },
+    {
+      "input": {
+        "limit": {
+          "tif": "Ioc"
+        }
+      },
+      "output": {
+        "limit": {
+          "tif": "Ioc"
+        }
+      }
+    },
+    {
+      "input": {
+        "limit": {
+          "tif": "Alo"
+        }
+      },
+      "output": {
+        "limit": {
+          "tif": "Alo"
+        }
+      }
+    },
+    {
+      "input": {
+        "trigger": {
+          "triggerPx": 1700.0,
+          "isMarket": true,
+          "tpsl": "sl"
+        }
+      },
+      "output": {
+        "trigger": {
+          "isMarket": true,
+          "triggerPx": "1700",
+          "tpsl": "sl"
+        }
+      }
+    },
+    {
+      "input": {
+        "trigger": {
+          "triggerPx": 2000.0,
+          "isMarket": true,
+          "tpsl": "tp"
+        }
+      },
+      "output": {
+        "trigger": {
+          "isMarket": true,
+          "triggerPx": "2000",
+          "tpsl": "tp"
+        }
+      }
+    },
+    {
+      "input": {
+        "trigger": {
+          "triggerPx": 1500.5,
+          "isMarket": false,
+          "tpsl": "sl"
+        }
+      },
+      "output": {
+        "trigger": {
+          "isMarket": false,
+          "triggerPx": "1500.5",
+          "tpsl": "sl"
+        }
+      }
+    }
+  ],
+  "order_request_to_order_wire": [
+    {
+      "asset": 1,
+      "is_buy": true,
+      "sz": 1.0,
+      "limit_px": 1800.0,
+      "order_type": {
+        "limit": {
+          "tif": "Gtc"
+        }
+      },
+      "reduce_only": false,
+      "cloid": null,
+      "output": {
+        "a": 1,
+        "b": true,
+        "p": "1800",
+        "s": "1",
+        "r": false,
+        "t": {
+          "limit": {
+            "tif": "Gtc"
+          }
+        }
+      }
+    },
+    {
+      "asset": 0,
+      "is_buy": false,
+      "sz": 0.5,
+      "limit_px": 45000.0,
+      "order_type": {
+        "limit": {
+          "tif": "Ioc"
+        }
+      },
+      "reduce_only": true,
+      "cloid": null,
+      "output": {
+        "a": 0,
+        "b": false,
+        "p": "45000",
+        "s": "0.5",
+        "r": true,
+        "t": {
+          "limit": {
+            "tif": "Ioc"
+          }
+        }
+      }
+    },
+    {
+      "asset": 4,
+      "is_buy": true,
+      "sz": 0.0147,
+      "limit_px": 1670.1,
+      "order_type": {
+        "limit": {
+          "tif": "Gtc"
+        }
+      },
+      "reduce_only": false,
+      "cloid": "0x00000000000000000000000000000001",
+      "output": {
+        "a": 4,
+        "b": true,
+        "p": "1670.1",
+        "s": "0.0147",
+        "r": false,
+        "t": {
+          "limit": {
+            "tif": "Gtc"
+          }
+        },
+        "c": "0x00000000000000000000000000000001"
+      }
+    },
+    {
+      "asset": 2,
+      "is_buy": true,
+      "sz": 100.0,
+      "limit_px": 100.0,
+      "order_type": {
+        "trigger": {
+          "triggerPx": 103.0,
+          "isMarket": true,
+          "tpsl": "sl"
+        }
+      },
+      "reduce_only": false,
+      "cloid": null,
+      "output": {
+        "a": 2,
+        "b": true,
+        "p": "100",
+        "s": "100",
+        "r": false,
+        "t": {
+          "trigger": {
+            "isMarket": true,
+            "triggerPx": "103",
+            "tpsl": "sl"
+          }
+        }
+      }
+    },
+    {
+      "asset": 1,
+      "is_buy": true,
+      "sz": 0.12345678,
+      "limit_px": 1234.5678,
+      "order_type": {
+        "limit": {
+          "tif": "Alo"
+        }
+      },
+      "reduce_only": false,
+      "cloid": null,
+      "output": {
+        "a": 1,
+        "b": true,
+        "p": "1234.5678",
+        "s": "0.12345678",
+        "r": false,
+        "t": {
+          "limit": {
+            "tif": "Alo"
+          }
+        }
+      }
+    }
+  ],
+  "action_hash": [
+    {
+      "action": {
+        "type": "dummy",
+        "num": 100000000000
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0xf528daee6a0bd11407b483cfcd9a48c56884180b70ee86f124053e5fc1bf4d57"
+    },
+    {
+      "action": {
+        "type": "dummy",
+        "num": 100000000000
+      },
+      "vault_address": "0x1719884eb866cb12b2287399b15f7db5e7d775ea",
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0xde9e09a7a3da45cc694096d4bfdcd89bc1b892d05497c5ecc1f56c335945184c"
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "100",
+            "s": "100",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x884f2c32bb6dbdd65f6033e32fb28c0cb6f5b345db0f6471fd3366d85c9252c1"
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "100",
+            "s": "100",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            },
+            "c": "0x00000000000000000000000000000001"
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x0ba500cedd8f4ba6ded620a0b1cd04f124d9ba745e2e2893fcc763bcc1444af5"
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 4,
+            "b": true,
+            "p": "1670.1",
+            "s": "0.0147",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Ioc"
+              }
+            }
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 1677777606040,
+      "expires_after": null,
+      "hash_hex": "0x0fcbeda5ae3c4950a548021552a4fea2226858c4453571bf3f24ba017eac2908"
+    },
+    {
+      "action": {
+        "type": "cancel",
+        "cancels": [
+          {
+            "a": 1,
+            "o": 123
+          }
+        ]
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x9b76723ffa33e507c794f57596f7932798462611015b65975601778ceef3f83a"
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "100",
+            "s": "100",
+            "r": false,
+            "t": {
+              "trigger": {
+                "isMarket": true,
+                "triggerPx": "103",
+                "tpsl": "sl"
+              }
+            }
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x430a86fb9876e901920d931f5bb20c9d011f6389bd179f39a73c09e6219adcad"
+    },
+    {
+      "action": {
+        "type": "createSubAccount",
+        "name": "example"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x9a7b5272baf65d28b0589bd50863a42ac35897553a6beb274e625b6faf7d6bb1"
+    },
+    {
+      "action": {
+        "type": "subAccountTransfer",
+        "subAccountUser": "0x1d9470d4b963f552e6f671a81619d395877bf409",
+        "isDeposit": true,
+        "usd": 10
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0xd12f71eba9e3e792812bfdf01a6a92f4d4016bb0541e850b41f770891c0cc447"
+    },
+    {
+      "action": {
+        "type": "scheduleCancel"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0xa2887a3147b6542306b61d311a056fd1753913d63cc904f30cba61712a98f4ae"
+    },
+    {
+      "action": {
+        "type": "scheduleCancel",
+        "time": 123456789
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x4be18e445114437c5d1d9dd35a09f5601a3cc34ed4ac94a0281251b9bd8f6832"
+    },
+    {
+      "action": {
+        "type": "updateLeverage",
+        "asset": 1,
+        "isCross": true,
+        "leverage": 10
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0xf54ae7f756e42f177c80fdeee8bc511530956e0afb27c3038d1acd51c49123ae"
+    },
+    {
+      "action": {
+        "type": "updateIsolatedMargin",
+        "asset": 1,
+        "isBuy": true,
+        "ntli": 100000000
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x69ef9724f56f8324945fd4cb49d6ca664129295a04b7e46620a7bc9f66f6d8f5"
+    },
+    {
+      "action": {
+        "type": "setReferrer",
+        "code": "MYCODE"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x19dc37f274fd3329827c9ea73f00a58ec665364cf39b52f19f193e5327535ec8"
+    },
+    {
+      "action": {
+        "type": "twapOrder",
+        "twap": {
+          "a": 1,
+          "b": true,
+          "s": "10",
+          "r": false,
+          "m": 30,
+          "t": true
+        }
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x9e1aa361fd7cedc6f090423b112b0936e448ca3cb20bca9544d398b70bdd9e38"
+    },
+    {
+      "action": {
+        "type": "twapCancel",
+        "a": 1,
+        "t": 42
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x7a9ddce9b0c2eae78ff51a92017649d7f587c92c7973233589a8aac5d44f7d8e"
+    },
+    {
+      "action": {
+        "type": "batchModify",
+        "modifies": [
+          {
+            "oid": 456,
+            "order": {
+              "a": 1,
+              "b": true,
+              "p": "1850",
+              "s": "2",
+              "r": false,
+              "t": {
+                "limit": {
+                  "tif": "Gtc"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x6b72d4efb2350e7162407b0c450be53740d0c0db3cd198a6e83f681a6549952f"
+    },
+    {
+      "action": {
+        "type": "cancelByCloid",
+        "cancels": [
+          {
+            "asset": 1,
+            "cloid": "0x00000000000000000000000000000063"
+          }
+        ]
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x0f49894d95161a0916aef605d4394af71518e87c4109b01f32d5a8f7553ebeb8"
+    },
+    {
+      "action": {
+        "type": "vaultTransfer",
+        "vaultAddress": "0x1719884eb866cb12b2287399b15f7db5e7d775ea",
+        "isDeposit": true,
+        "usd": 1000
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x38df3e0bc04ed385b22bb8f3293c2012804d596390faac43d5718bec8a9b2c48"
+    },
+    {
+      "action": {
+        "type": "evmUserModify",
+        "usingBigBlocks": true
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x65770174ea8e9026a18bb645634d2d72d16d443c48da9619ed0f3f8cce17888a"
+    },
+    {
+      "action": {
+        "type": "agentEnableDexAbstraction"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0xd581cbbe6ecec874c6f7de82644775279abb11cc78188399e58739088b0b7032"
+    },
+    {
+      "action": {
+        "type": "agentSetAbstraction",
+        "abstraction": "u"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0xa3f3e68a369433d725e1d3515abfd8d6520fb552519c4f92d633639a57382634"
+    },
+    {
+      "action": {
+        "type": "noop"
+      },
+      "vault_address": null,
+      "nonce": 12345,
+      "expires_after": null,
+      "hash_hex": "0xcdea8c6f93c97e12370f37c999b7cd76e5022cfee69f5d3c4e2b1064393ba52c"
+    },
+    {
+      "action": {
+        "type": "dummy",
+        "num": 100000000000
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": 9999999999999,
+      "hash_hex": "0x77e24a14ec2212c66d3f755f15bac1764ce1b2fe9425a360e2aa0af501b86d19"
+    },
+    {
+      "action": {
+        "type": "dummy",
+        "num": 100000000000
+      },
+      "vault_address": "0x1719884eb866cb12b2287399b15f7db5e7d775ea",
+      "nonce": 0,
+      "expires_after": 9999999999999,
+      "hash_hex": "0xb38b3bd41248470dc473dba90ea4b8cb182fc1b685a0e8c39c48e4287eb7dccd"
+    },
+    {
+      "action": {
+        "type": "spotDeploy",
+        "registerToken2": {
+          "spec": {
+            "name": "TEST",
+            "szDecimals": 2,
+            "weiDecimals": 18
+          },
+          "maxGas": 100,
+          "fullName": "Test Token"
+        }
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x22716f7f9b62db797aa6edb9f95d613d276e4d6ca7532d71478193bfebce883c"
+    },
+    {
+      "action": {
+        "type": "CSignerAction",
+        "unjailSelf": null
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0xf71a23fcfd0f583d9b203e2103ade264748982f743ad7ca8b49b4f9d4dfb0d28"
+    },
+    {
+      "action": {
+        "type": "CValidatorAction",
+        "unregister": null
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x5ebf49c5a0d30f1d0d0739af33385447c1485f6302bdc27ceec183cba3259fe1"
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "1800",
+            "s": "1",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          }
+        ],
+        "grouping": "na",
+        "builder": {
+          "b": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+          "f": 10
+        }
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "hash_hex": "0x6a14854afcd64dca123e3370a2efa43fa7eae8bade3c4532f4dc853a148ae4b2"
+    }
+  ],
+  "l1_signatures": [
+    {
+      "action": {
+        "type": "dummy",
+        "num": 100000000000
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x53749d5b30552aeb2fca34b530185976545bb22d0b3ce6f62e31be961a59298",
+      "s": "0x755c40ba9bf05223521753995abb2f73ab3229be8ec921f350cb447e384d8ed8",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "dummy",
+        "num": 100000000000
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": false,
+      "r": "0x542af61ef1f429707e3c76c5293c80d01f74ef853e34b76efffcb57e574f9510",
+      "s": "0x17b8b32f086e8cdede991f1e2c529f5dd5297cbe8128500e00cbaf766204a613",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "dummy",
+        "num": 100000000000
+      },
+      "vault_address": "0x1719884eb866cb12b2287399b15f7db5e7d775ea",
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x3c548db75e479f8012acf3000ca3a6b05606bc2ec0c29c50c515066a326239",
+      "s": "0x4d402be7396ce74fbba3795769cda45aec00dc3125a984f2a9f23177b190da2c",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "dummy",
+        "num": 100000000000
+      },
+      "vault_address": "0x1719884eb866cb12b2287399b15f7db5e7d775ea",
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": false,
+      "r": "0xe281d2fb5c6e25ca01601f878e4d69c965bb598b88fac58e475dd1f5e56c362b",
+      "s": "0x7ddad27e9a238d045c035bc606349d075d5c5cd00a6cd1da23ab5c39d4ef0f60",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "100",
+            "s": "100",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0xd65369825a9df5d80099e513cce430311d7d26ddf477f5b3a33d2806b100d78e",
+      "s": "0x2b54116ff64054968aa237c20ca9ff68000f977c93289157748a3162b6ea940e",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "100",
+            "s": "100",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": false,
+      "r": "0x82b2ba28e76b3d761093aaded1b1cdad4960b3af30212b343fb2e6cdfa4e3d54",
+      "s": "0x6b53878fc99d26047f4d7e8c90eb98955a109f44209163f52d8dc4278cbbd9f5",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "100",
+            "s": "100",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            },
+            "c": "0x00000000000000000000000000000001"
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x41ae18e8239a56cacbc5dad94d45d0b747e5da11ad564077fcac71277a946e3",
+      "s": "0x3c61f667e747404fe7eea8f90ab0e76cc12ce60270438b2058324681a00116da",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "100",
+            "s": "100",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            },
+            "c": "0x00000000000000000000000000000001"
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": false,
+      "r": "0xeba0664bed2676fc4e5a743bf89e5c7501aa6d870bdb9446e122c9466c5cd16d",
+      "s": "0x7f3e74825c9114bc59086f1eebea2928c190fdfbfde144827cb02b85bbe90988",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "100",
+            "s": "100",
+            "r": false,
+            "t": {
+              "trigger": {
+                "isMarket": true,
+                "triggerPx": "103",
+                "tpsl": "sl"
+              }
+            }
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x98343f2b5ae8e26bb2587daad3863bc70d8792b09af1841b6fdd530a2065a3f9",
+      "s": "0x6b5bb6bb0633b710aa22b721dd9dee6d083646a5f8e581a20b545be6c1feb405",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "100",
+            "s": "100",
+            "r": false,
+            "t": {
+              "trigger": {
+                "isMarket": true,
+                "triggerPx": "103",
+                "tpsl": "sl"
+              }
+            }
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": false,
+      "r": "0x971c554d917c44e0e1b6cc45d8f9404f32172a9d3b3566262347d0302896a2e4",
+      "s": "0x206257b104788f80450f8e786c329daa589aa0b32ba96948201ae556d5637eac",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "createSubAccount",
+        "name": "example"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x51096fe3239421d16b671e192f574ae24ae14329099b6db28e479b86cdd6caa7",
+      "s": "0xb71f7d293af92d3772572afb8b102d167a7cef7473388286bc01f52a5c5b423",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "createSubAccount",
+        "name": "example"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": false,
+      "r": "0xa699e3ed5c2b89628c746d3298b5dc1cca604694c2c855da8bb8250ec8014a5b",
+      "s": "0x53f1b8153a301c72ecc655b1c315d64e1dcea3ee58921fd7507e35818fcc1584",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "subAccountTransfer",
+        "subAccountUser": "0x1d9470d4b963f552e6f671a81619d395877bf409",
+        "isDeposit": true,
+        "usd": 10
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x43592d7c6c7d816ece2e206f174be61249d651944932b13343f4d13f306ae602",
+      "s": "0x71a926cb5c9a7c01c3359ec4c4c34c16ff8107d610994d4de0e6430e5cc0f4c9",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "subAccountTransfer",
+        "subAccountUser": "0x1d9470d4b963f552e6f671a81619d395877bf409",
+        "isDeposit": true,
+        "usd": 10
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": false,
+      "r": "0xe26574013395ad55ee2f4e0575310f003c5bb3351b5425482e2969fa51543927",
+      "s": "0xefb08999196366871f919fd0e138b3a7f30ee33e678df7cfaf203e25f0a4278",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "scheduleCancel"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x6cdfb286702f5917e76cd9b3b8bf678fcc49aec194c02a73e6d4f16891195df9",
+      "s": "0x6557ac307fa05d25b8d61f21fb8a938e703b3d9bf575f6717ba21ec61261b2a0",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "scheduleCancel"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": false,
+      "r": "0xc75bb195c3f6a4e06b7d395acc20bbb224f6d23ccff7c6a26d327304e6efaeed",
+      "s": "0x342f8ede109a29f2c0723bd5efb9e9100e3bbb493f8fb5164ee3d385908233df",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "scheduleCancel",
+        "time": 123456789
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x609cb20c737945d070716dcc696ba030e9976fcf5edad87afa7d877493109d55",
+      "s": "0x16c685d63b5c7a04512d73f183b3d7a00da5406ff1f8aad33f8ae2163bab758b",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "scheduleCancel",
+        "time": 123456789
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": false,
+      "r": "0x4e4f2dbd4107c69783e251b7e1057d9f2b9d11cee213441ccfa2be63516dc5bc",
+      "s": "0x706c656b23428c8ba356d68db207e11139ede1670481a9e01ae2dfcdb0e1a678",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "cancel",
+        "cancels": [
+          {
+            "a": 1,
+            "o": 123
+          }
+        ]
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x6f844c0be83ea61c920ca26af586450f03b7024e58c2c8525b4dd271ea424749",
+      "s": "0x50c3813268f4ae21f83b208ff4f7d2370e7720ff8c78a34fbc7f029f1f990e35",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "cancelByCloid",
+        "cancels": [
+          {
+            "asset": 1,
+            "cloid": "0x00000000000000000000000000000063"
+          }
+        ]
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x323d7abadf41f60d8b2f6116538a119d54f5ba370a0241731c69be2af423c3ae",
+      "s": "0x23861513aaa69bb227ededb49749fac548eae904dc27cd7075521d33766a5626",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "updateLeverage",
+        "asset": 1,
+        "isCross": true,
+        "leverage": 10
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0xe10d541e5d102e793bfa5b9d2ab7e178de6bb3920aa4b25cb31203f2cc3c48d8",
+      "s": "0x770fe6d69d47c3f76e7fb5a066e37eb90847633666e7143bb1c69dc9986971fc",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "updateIsolatedMargin",
+        "asset": 1,
+        "isBuy": true,
+        "ntli": 100000000
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x415d397a246546231da6daf9b77320dae28e8696d079f0cbc21592a4c2f4187c",
+      "s": "0x7a68bd557e196de017f465e59b6c43325a7159c17144bb6728a52b1e14f24ee0",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "setReferrer",
+        "code": "MYCODE"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0xf79b6debdba5fd8be8bce9e576e490a9a790639b02393daae81394c5d4b7beec",
+      "s": "0x64fa265f548f575bb9d207ec93e5e2937cac69747a5980b0e86f30d1442d4fa6",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "twapOrder",
+        "twap": {
+          "a": 1,
+          "b": true,
+          "s": "10",
+          "r": false,
+          "m": 30,
+          "t": true
+        }
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x9b8f06d7180f30008f71c8a15e1a4940a604c57a027ebf04d543da20cacb87c8",
+      "s": "0x385c96b42dfc7fb9369de833471384c15c34cef1f42d83c3072d9d52b92c514b",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "batchModify",
+        "modifies": [
+          {
+            "oid": 456,
+            "order": {
+              "a": 1,
+              "b": true,
+              "p": "1850",
+              "s": "2",
+              "r": false,
+              "t": {
+                "limit": {
+                  "tif": "Gtc"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x8dc2b32d9164ab95bb89ec4ae98b60266b0a93822e6d9e8b84e087d1a146e869",
+      "s": "0x3f0d6a6096a29f3df45629fc65599e6d3d8b2b6f1519642c9f1281f169ca8806",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "dummy",
+        "num": 100000000000
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": 9999999999999,
+      "is_mainnet": true,
+      "r": "0x23548007cf16606bf68a9c393380418f6c5b36e4823799e66769ae47082b2e56",
+      "s": "0xd83c8c18762d17c5723e09673ed1a7298d6a17528d60b4539bd301cf0ff029d",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "dummy",
+        "num": 100000000000
+      },
+      "vault_address": "0x1719884eb866cb12b2287399b15f7db5e7d775ea",
+      "nonce": 0,
+      "expires_after": 9999999999999,
+      "is_mainnet": true,
+      "r": "0x910326fd222d8c6453c2fc7f070079855302e5a1099ea7369c8fc1d09eafc0f1",
+      "s": "0x3cce74e32005a1f3134733c11b3537422fc96e5d4c19a2803b1ab7c15ce52233",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "vaultTransfer",
+        "vaultAddress": "0x1719884eb866cb12b2287399b15f7db5e7d775ea",
+        "isDeposit": true,
+        "usd": 1000
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x2c9a4e5c4cdfeb0b5603d613cf95242730ae3679c13ff2dfd5a7b49f8ee82462",
+      "s": "0x5d0288f6ce34d8b142fc4d17327b149be78208936ba6cdfbe3e9febacdca27f9",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "evmUserModify",
+        "usingBigBlocks": true
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x396e2c6130d146f0441c1b895fcdeb770ec0d10bd83900d7b251fab40c2ee97e",
+      "s": "0x48c5adc1f64e88aad1ab382a2223615e37ef7fc3b0c1e0495a644fe58af3f459",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "spotDeploy",
+        "registerToken2": {
+          "spec": {
+            "name": "TEST",
+            "szDecimals": 2,
+            "weiDecimals": 18
+          },
+          "maxGas": 100,
+          "fullName": "Test Token"
+        }
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0xaff23a9133c1a693bb88681bd62cf65b4fd00d557313b5c2ea9008a14b7f10d3",
+      "s": "0x573504e7c0f3f513ea6cb5041ad408c475a87e6704947c40baaa3497a89b3590",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "CSignerAction",
+        "unjailSelf": null
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x88fcd31e1327251620662fb7d2df8394fbc9b845def09d81ba9a1c6df6483b87",
+      "s": "0x11a0da5cc6e9419834cab6d256e20cfbfa4bf50dc339965586722c59bfdf01af",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "CValidatorAction",
+        "unregister": null
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x980012aeeeb42c286ce2b03fc74823b70f19ff8fff5f732d470d00f08253c5c1",
+      "s": "0x76d5b6daecb6323527323a3bb9d8dbd830b1a88adb0c6eaf4379311d39f837e0",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "noop"
+      },
+      "vault_address": null,
+      "nonce": 12345,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0xcf12ef237eda2c499718ad13b14a15cbcec2f00778c1a90dee072d256d3ece26",
+      "s": "0xfd89168dd280919fdf31530dcab2223b31e314ab80ce51eb714e9f146b90608",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "agentEnableDexAbstraction"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x61405127682505f75fe0ea475eda792c2aba9e33255ef1bf0d452ea565b82e2c",
+      "s": "0x2fd755e49f40a2d4991b93802a85e15a8e9bb0a02995670f6208fded6685e0af",
+      "v": 28
+    },
+    {
+      "action": {
+        "type": "agentSetAbstraction",
+        "abstraction": "u"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0xe5068500de73060632585a80bf8ea629f9dc3d2a782df87596e45da8625929bb",
+      "s": "0x6f34f904752edb1caacf1b67ac33b2cc4b085d1e99cd72dbe783cde061605641",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "1800",
+            "s": "1",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          }
+        ],
+        "grouping": "na",
+        "builder": {
+          "b": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+          "f": 10
+        }
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x470fe77a1cf8febb71713470b0dffbf8d2fe5d2eb8b8f6622a2265f8241d8ddb",
+      "s": "0x67371324d16b1c0b74566b59dd782bc12894d1f70760f5bd5dcd9bb1daebe366",
+      "v": 27
+    },
+    {
+      "action": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "1800",
+            "s": "1",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          },
+          {
+            "a": 0,
+            "b": false,
+            "p": "45000",
+            "s": "0.1",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          }
+        ],
+        "grouping": "na"
+      },
+      "vault_address": null,
+      "nonce": 0,
+      "expires_after": null,
+      "is_mainnet": true,
+      "r": "0x4a3661987193ac303e058e7d7464bfac5bccd7bbb87325cf20ccca0cbe12a191",
+      "s": "0x2b70fa07e4f13a74c7ae27aeb261c42687188b06096699c2bbf39679f4df118a",
+      "v": 28
+    }
+  ],
+  "user_signed_signatures": [
+    {
+      "primary_type": "UsdSend",
+      "action": {
+        "destination": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "amount": "1",
+        "time": 1687816341423,
+        "type": "usdSend"
+      },
+      "is_mainnet": true,
+      "r": "0x9adbd066e8ae671f06b5d18e51fd2ec11b5443d64b13718028c7ff06905c71fb",
+      "s": "0x1eba4172075f8a8037481400ae86ed56c5e5f672e3db084528a8e3b2daeff976",
+      "v": 28
+    },
+    {
+      "primary_type": "UsdSend",
+      "action": {
+        "destination": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "amount": "1",
+        "time": 1687816341423,
+        "type": "usdSend"
+      },
+      "is_mainnet": false,
+      "r": "0x637b37dd731507cdd24f46532ca8ba6eec616952c56218baeff04144e4a77073",
+      "s": "0x11a6a24900e6e314136d2592e2f8d502cd89b7c15b198e1bee043c9589f9fad7",
+      "v": 27
+    },
+    {
+      "primary_type": "SpotSend",
+      "action": {
+        "destination": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "amount": "50.5",
+        "token": "USDC",
+        "time": 1687816341423,
+        "type": "spotSend"
+      },
+      "is_mainnet": true,
+      "r": "0x30927afc9929aa0dd539c182a507127cc8acd5f29c4546c3392c7dc28dd27a37",
+      "s": "0x64cea5d2d6a0f69558d5bb256373ec522c71188dad6e9e033d6bc1c9cec9dd8b",
+      "v": 28
+    },
+    {
+      "primary_type": "SpotSend",
+      "action": {
+        "destination": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "amount": "50.5",
+        "token": "USDC",
+        "time": 1687816341423,
+        "type": "spotSend"
+      },
+      "is_mainnet": false,
+      "r": "0x70c98d3cfb92b7e893c31e1d82ffe606a457bdc640d980eb20db77ea35e83ac",
+      "s": "0x5c2cca3090d589ab1a6ccfdcccdeb870e7a4572216b0ced0eb4041066309ce3e",
+      "v": 27
+    },
+    {
+      "primary_type": "Withdraw",
+      "action": {
+        "destination": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "amount": "1",
+        "time": 1687816341423,
+        "type": "withdraw3"
+      },
+      "is_mainnet": true,
+      "r": "0xa155eccb6deecc343d5ce1d69ca20a6b8959cc3f21ffff6b82790e2e9f7fe888",
+      "s": "0x6e78708de0806beceab552e1a97378fa80090d902bfffa8b6ee6b35d713f58c4",
+      "v": 28
+    },
+    {
+      "primary_type": "Withdraw",
+      "action": {
+        "destination": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "amount": "1",
+        "time": 1687816341423,
+        "type": "withdraw3"
+      },
+      "is_mainnet": false,
+      "r": "0x8363524c799e90ce9bc41022f7c39b4e9bdba786e5f9c72b20e43e1462c37cf9",
+      "s": "0x58b1411a775938b83e29182e8ef74975f9054c8e97ebf5ec2dc8d51bfc893881",
+      "v": 28
+    },
+    {
+      "primary_type": "UsdClassTransfer",
+      "action": {
+        "amount": "200",
+        "toPerp": true,
+        "nonce": 1687816341423,
+        "type": "usdClassTransfer"
+      },
+      "is_mainnet": true,
+      "r": "0xd675690305553fa7d3efc9895c60717ce32db1b28c1800a0862d710135a2a896",
+      "s": "0x73ad1e565521cd39d9828a9483faea4c9ddd4e4d2b8b2b61c322c7ddd1c627e1",
+      "v": 27
+    },
+    {
+      "primary_type": "UsdClassTransfer",
+      "action": {
+        "amount": "200",
+        "toPerp": true,
+        "nonce": 1687816341423,
+        "type": "usdClassTransfer"
+      },
+      "is_mainnet": false,
+      "r": "0x89535aaa566da942e85c29607e540a14d62b87050d991b7d415c0aadba5f9390",
+      "s": "0x337e5dbba691fa43537085cb271f942df1a02888460011533cb03b3a28564747",
+      "v": 28
+    },
+    {
+      "primary_type": "SendAsset",
+      "action": {
+        "destination": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "sourceDex": "dex1",
+        "destinationDex": "dex2",
+        "token": "USDC",
+        "amount": "100",
+        "fromSubAccount": "",
+        "nonce": 1687816341423,
+        "type": "sendAsset"
+      },
+      "is_mainnet": true,
+      "r": "0x9db9aab6e46fb4f01c8b3102c601b6d58c9cca8ef37692fa17c10bbbde78f44b",
+      "s": "0x7d6543e217ca662c62686fb23efa9d3c100cf60cb481adf9ec435ccee2b0c481",
+      "v": 28
+    },
+    {
+      "primary_type": "SendAsset",
+      "action": {
+        "destination": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "sourceDex": "dex1",
+        "destinationDex": "dex2",
+        "token": "USDC",
+        "amount": "100",
+        "fromSubAccount": "",
+        "nonce": 1687816341423,
+        "type": "sendAsset"
+      },
+      "is_mainnet": false,
+      "r": "0x8a45e6fa355728fae8c94449a79b3ff7e55e0e9805b95345d681461920879b4e",
+      "s": "0x78d904743a74740ecb54cb88398b6f00c7559c37a322cd9b80a3d7e53c59a598",
+      "v": 27
+    },
+    {
+      "primary_type": "ApproveAgent",
+      "action": {
+        "type": "approveAgent",
+        "agentAddress": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "agentName": "mybot",
+        "nonce": 1687816341423
+      },
+      "is_mainnet": true,
+      "r": "0x3f05a25b8deca41339c1319ba874b007fbf68bcb6dca17c2ea1c9701ebc1ac6",
+      "s": "0x4addcab26e7c8d770bc229a1e9f627bd147cdfb03901e84512a3a9d9a085241a",
+      "v": 27
+    },
+    {
+      "primary_type": "ApproveAgent",
+      "action": {
+        "type": "approveAgent",
+        "agentAddress": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "agentName": "mybot",
+        "nonce": 1687816341423
+      },
+      "is_mainnet": false,
+      "r": "0xaba9e25685f1f4a629508206cfab3e6d5a3fc1a47537cf8e71eeeb9ea2af401b",
+      "s": "0x7adb47d03790069016e492f277d25ca9d076428f3ed34a98150dc8d537b7ab92",
+      "v": 27
+    },
+    {
+      "primary_type": "ApproveBuilderFee",
+      "action": {
+        "maxFeeRate": "0.001",
+        "builder": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "nonce": 1687816341423,
+        "type": "approveBuilderFee"
+      },
+      "is_mainnet": true,
+      "r": "0x68c1063dea192247ca41173aa680767acc2b7552f3051ca61537738fe789ba07",
+      "s": "0x1a22c076139efc70fe4ef317d5640728f7e14bcb572bc64bb5b8ae1bc3e0fbe8",
+      "v": 28
+    },
+    {
+      "primary_type": "ApproveBuilderFee",
+      "action": {
+        "maxFeeRate": "0.001",
+        "builder": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "nonce": 1687816341423,
+        "type": "approveBuilderFee"
+      },
+      "is_mainnet": false,
+      "r": "0xcafdb416b47a969086884c4304a046c469843c4d7393f893a8bb6e27eff5c607",
+      "s": "0x1fdabad6b3b3538936fefc629030a09adc434fadf4f8f039c497ccef4b7571d6",
+      "v": 28
+    },
+    {
+      "primary_type": "TokenDelegate",
+      "action": {
+        "validator": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "wei": 1000000000000000000,
+        "isUndelegate": false,
+        "nonce": 1687816341423,
+        "type": "tokenDelegate"
+      },
+      "is_mainnet": true,
+      "r": "0x789e8ddd0c030b3f8bfbaca6343b570b7aa0e5503a991fdbbd7469b102475fbd",
+      "s": "0x24990fca5eb0450d7b241d6863c8e93e48e09a7946fb73dc7c1a2637fd8756b8",
+      "v": 28
+    },
+    {
+      "primary_type": "TokenDelegate",
+      "action": {
+        "validator": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "wei": 1000000000000000000,
+        "isUndelegate": false,
+        "nonce": 1687816341423,
+        "type": "tokenDelegate"
+      },
+      "is_mainnet": false,
+      "r": "0x5ed0bdfa855692d6ad7692e82b589e6cbb658b071736d91c4eb90f0d8b3314d0",
+      "s": "0x1db1cf7f49d95a6d3fe493aae0ba3ebec8c99282bc53ecf797bcebcbba6d6a57",
+      "v": 28
+    },
+    {
+      "primary_type": "ConvertToMultiSigUser",
+      "action": {
+        "type": "convertToMultiSigUser",
+        "signers": "{\"authorizedUsers\": [\"0x1234567890123456789012345678901234567890\", \"0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\"], \"threshold\": 2}",
+        "nonce": 1687816341423
+      },
+      "is_mainnet": true,
+      "r": "0xf552d7f702dee5f47fb6502a9876009dafe01f4fe106b3d093a09d9c54849dba",
+      "s": "0xdd149b6dc1be41af0475076bcf70054d82b09aef73ff71fa3c9d4663d217423",
+      "v": 28
+    },
+    {
+      "primary_type": "ConvertToMultiSigUser",
+      "action": {
+        "type": "convertToMultiSigUser",
+        "signers": "{\"authorizedUsers\": [\"0x1234567890123456789012345678901234567890\", \"0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\"], \"threshold\": 2}",
+        "nonce": 1687816341423
+      },
+      "is_mainnet": false,
+      "r": "0xa7dc53a68c76a59a37a4ab1ddeda4cf675a8b65eeb23c1f54396b1fc3018c861",
+      "s": "0x6490eb36ce6930adcaf9999add0edb038b51c4052718c0c73105a347584dadf9",
+      "v": 28
+    },
+    {
+      "primary_type": "UserDexAbstraction",
+      "action": {
+        "type": "userDexAbstraction",
+        "user": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "enabled": true,
+        "nonce": 1687816341423
+      },
+      "is_mainnet": true,
+      "r": "0x9a4712e55942c153c864fbae51deb9fb97161293423562ef8a28809d1ea883b8",
+      "s": "0x2d89a6b0066a132b216daec3440313f46405edbf866cb131e4ef09dafc5ff304",
+      "v": 28
+    },
+    {
+      "primary_type": "UserDexAbstraction",
+      "action": {
+        "type": "userDexAbstraction",
+        "user": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "enabled": true,
+        "nonce": 1687816341423
+      },
+      "is_mainnet": false,
+      "r": "0x38ca15e803259a7f21294ead89c492031957b64e1a3104ab00af39d54767f38",
+      "s": "0x7fdd4b860f9c207779c1eb0978d7655f272522009d4904402123a3a60ed8edab",
+      "v": 27
+    },
+    {
+      "primary_type": "UserSetAbstraction",
+      "action": {
+        "type": "userSetAbstraction",
+        "user": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "abstraction": "unifiedAccount",
+        "nonce": 1687816341423
+      },
+      "is_mainnet": true,
+      "r": "0xa9cabf966b9caa747ba5170b01b0bc5e74911bf88672cb9f43d2e9dd657dce6e",
+      "s": "0x7c549abe61d95d9aa405afe38831ff37aba08ad445bf8844b2bb3faf81ec6814",
+      "v": 27
+    },
+    {
+      "primary_type": "UserSetAbstraction",
+      "action": {
+        "type": "userSetAbstraction",
+        "user": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "abstraction": "unifiedAccount",
+        "nonce": 1687816341423
+      },
+      "is_mainnet": false,
+      "r": "0xc249e63be48d06f994d3d319d0c65b4202e0e55376a1a2061e0e08c86ff9a41f",
+      "s": "0x23982825fb97d6e9843c0ec0731597f4c71bdb74c32541fbdf074574548a684c",
+      "v": 27
+    }
+  ],
+  "phantom_agent": [
+    {
+      "hash_hex": "0x0fcbeda5ae3c4950a548021552a4fea2226858c4453571bf3f24ba017eac2908",
+      "is_mainnet": true,
+      "source": "a",
+      "connectionId": "0x0fcbeda5ae3c4950a548021552a4fea2226858c4453571bf3f24ba017eac2908"
+    },
+    {
+      "hash_hex": "0x0fcbeda5ae3c4950a548021552a4fea2226858c4453571bf3f24ba017eac2908",
+      "is_mainnet": false,
+      "source": "b",
+      "connectionId": "0x0fcbeda5ae3c4950a548021552a4fea2226858c4453571bf3f24ba017eac2908"
+    }
+  ],
+  "order_wires_to_order_action": [
+    {
+      "wires": [
+        {
+          "a": 1,
+          "b": true,
+          "p": "1800",
+          "s": "1",
+          "r": false,
+          "t": {
+            "limit": {
+              "tif": "Gtc"
+            }
+          }
+        }
+      ],
+      "builder": null,
+      "grouping": "na",
+      "output": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "1800",
+            "s": "1",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          }
+        ],
+        "grouping": "na"
+      }
+    },
+    {
+      "wires": [
+        {
+          "a": 1,
+          "b": true,
+          "p": "1800",
+          "s": "1",
+          "r": false,
+          "t": {
+            "limit": {
+              "tif": "Gtc"
+            }
+          }
+        },
+        {
+          "a": 0,
+          "b": false,
+          "p": "45000",
+          "s": "0.1",
+          "r": false,
+          "t": {
+            "limit": {
+              "tif": "Gtc"
+            }
+          }
+        }
+      ],
+      "builder": null,
+      "grouping": "na",
+      "output": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "1800",
+            "s": "1",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          },
+          {
+            "a": 0,
+            "b": false,
+            "p": "45000",
+            "s": "0.1",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          }
+        ],
+        "grouping": "na"
+      }
+    },
+    {
+      "wires": [
+        {
+          "a": 1,
+          "b": true,
+          "p": "1800",
+          "s": "1",
+          "r": false,
+          "t": {
+            "limit": {
+              "tif": "Gtc"
+            }
+          }
+        }
+      ],
+      "builder": {
+        "b": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+        "f": 10
+      },
+      "grouping": "na",
+      "output": {
+        "type": "order",
+        "orders": [
+          {
+            "a": 1,
+            "b": true,
+            "p": "1800",
+            "s": "1",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          }
+        ],
+        "grouping": "na",
+        "builder": {
+          "b": "0x5e9ee1089755c3435139848e47e6635505d5a13a",
+          "f": 10
+        }
+      }
+    }
+  ],
+  "_summary": {
+    "float_to_wire": 20,
+    "float_to_int_for_hashing": 10,
+    "float_to_usd_int": 7,
+    "order_type_to_wire": 6,
+    "order_request_to_order_wire": 5,
+    "action_hash": 29,
+    "l1_signatures": 37,
+    "user_signed_signatures": 22,
+    "phantom_agent": 2,
+    "order_wires_to_order_action": 3
+  }
+}

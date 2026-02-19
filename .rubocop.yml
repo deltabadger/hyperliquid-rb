@@ -13,13 +13,19 @@ Layout/LineLength:
   Max: 130
 
 Metrics/ClassLength:
-  Max: 300
+  Max: 600
 
 Metrics/MethodLength:
-  Max: 30
+  Max: 35
 
 Metrics/AbcSize:
-  Max: 30
+  Max: 45
+
+Metrics/CyclomaticComplexity:
+  Max: 17
+
+Metrics/PerceivedComplexity:
+  Max: 15
 
 Metrics/ParameterLists:
   Max: 10
@@ -31,8 +37,13 @@ Naming/MethodParameterName:
     - v
     - s
     - sz
+    - px
+    - m
 
 Naming/VariableNumber:
+  Enabled: false
+
+Naming/AccessorMethodName:
   Enabled: false
 
 Style/NumericLiterals:

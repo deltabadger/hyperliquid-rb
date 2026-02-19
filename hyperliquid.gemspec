@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "eth", "~> 0.5.17"
   spec.add_dependency "faraday", "~> 2.0"
   spec.add_dependency "msgpack", "~> 1.7"
+  spec.add_dependency "websocket-client-simple", "~> 0.9"
 end

@@ -90,6 +90,18 @@ module Hyperliquid
       { name: "hyperliquidChain", type: "string" },
       { name: "multiSigActionHash", type: "bytes32" },
       { name: "nonce", type: "uint64" }
+    ],
+    "UserDexAbstraction" => [
+      { name: "hyperliquidChain", type: "string" },
+      { name: "user", type: "address" },
+      { name: "enabled", type: "bool" },
+      { name: "nonce", type: "uint64" }
+    ],
+    "UserSetAbstraction" => [
+      { name: "hyperliquidChain", type: "string" },
+      { name: "user", type: "address" },
+      { name: "abstraction", type: "string" },
+      { name: "nonce", type: "uint64" }
     ]
   }.freeze
 end
