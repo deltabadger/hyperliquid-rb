@@ -1,0 +1,48 @@
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: enable
+  SuggestExtensions: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Layout/LineLength:
+  Max: 130
+
+Metrics/ClassLength:
+  Max: 300
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/ParameterLists:
+  Max: 10
+
+Naming/MethodParameterName:
+  AllowedNames:
+    - x
+    - n
+    - v
+    - s
+    - sz
+
+Naming/VariableNumber:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
