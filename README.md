@@ -7,7 +7,7 @@ Verified with 314 tests including 141 cross-library test vectors generated from 
 ## Installation
 
 ```ruby
-gem "hyperliquid"
+gem "hyperliquid-rb"
 ```
 
 ### System Dependencies

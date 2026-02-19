@@ -3,7 +3,7 @@
 require_relative "lib/hyperliquid/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "hyperliquid"
+  spec.name = "hyperliquid-rb"
   spec.version = Hyperliquid::VERSION
   spec.authors = ["Deltabadger"]
   spec.email = ["hello@deltabadger.com"]
@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] = "#{spec.homepage}/commits/main"
   spec.metadata["rubygems_mfa_required"] = "true"
 
   spec.files = Dir["lib/**/*.rb", "LICENSE.txt", "README.md"]
