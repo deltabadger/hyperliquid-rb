@@ -2,7 +2,7 @@
 
 [![Gem Version](https://img.shields.io/gem/v/hyperliquid-rb)](https://rubygems.org/gems/hyperliquid-rb)
 [![CI](https://github.com/deltabadger/hyperliquid-rb/actions/workflows/ci.yml/badge.svg)](https://github.com/deltabadger/hyperliquid-rb/actions)
-[![License](https://img.shields.io/gem/l/hyperliquid-rb)](LICENSE.txt)
+[![License](https://img.shields.io/github/license/deltabadger/hyperliquid-rb)](LICENSE.txt)
 
 Complete Ruby SDK for the [Hyperliquid](https://hyperliquid.xyz) DEX. Covers 100% of the official Python SDK — trading, market data, EIP-712 signing, WebSocket subscriptions, and account management.
 
