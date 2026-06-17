@@ -422,9 +422,8 @@ module Hyperliquid
     def load_spot_coin_mapping!
       m = spot_meta
       @spot_coin_to_asset = {}
-      m["universe"].each_with_index do |token_info, index|
-        name = token_info["name"]
-        @spot_coin_to_asset[name] = 10_000 + index
+      m["universe"].each do |token_info|
+        @spot_coin_to_asset[token_info["name"]] = 10_000 + token_info["index"]
       end
     end
 
@@ -439,16 +438,7 @@ module Hyperliquid
 
       # Load spot metadata
       begin
-        sm = spot_meta
-        sm["universe"].each_with_index do |token_info, index|
-          name = token_info["name"]
-          asset = 10_000 + index
-          @coin_to_asset[name] = asset
-          @name_to_coin[name] = name
-        end
-        sm["tokens"]&.each do |token|
-          @asset_to_sz_decimals[token["index"]] = token["szDecimals"] if token["index"]
-        end
+        set_spot_meta(spot_meta)
       rescue Error
         # spot_meta may not be available
       end
@@ -470,6 +460,26 @@ module Hyperliquid
       end
 
       @spot_coin_to_asset = @coin_to_asset.select { |_k, v| v >= 10_000 && v < 110_000 }
+    end
+
+    # Load the spot section of the mappings (mirrors the official Python SDK).
+    # Asset ids use the universe entry's permanent `index` field (10_000 + index),
+    # never its array position; the spot universe is sparse so the two diverge.
+    def set_spot_meta(m)
+      tokens = m["tokens"] || []
+      m["universe"].each do |spot_info|
+        asset = 10_000 + spot_info["index"]
+        name  = spot_info["name"]
+        @coin_to_asset[name] = asset
+        @name_to_coin[name]  = name
+        base, quote = spot_info["tokens"] # nil tokens => base=quote=nil (safe)
+        base_info  = tokens[base]  if base
+        quote_info = tokens[quote] if quote
+        @asset_to_sz_decimals[asset] = base_info["szDecimals"] if base_info
+        next unless base_info && quote_info
+
+        @name_to_coin["#{base_info["name"]}/#{quote_info["name"]}"] ||= name
+      end
     end
 
     def set_perp_meta(m, offset, dex: nil)

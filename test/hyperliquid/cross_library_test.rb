@@ -203,7 +203,33 @@ class Hyperliquid::CrossLibraryTest < Minitest::Test
     end
   end
 
+  # ===========================================================================
+  # NAME -> ASSET (spot index mapping on a sparse universe)
+  # ===========================================================================
+  # Verifies the Ruby SDK resolves coin names to the same asset ids as the
+  # Python SDK on a sparse spot universe (array position != permanent index).
+  # The meta/spotMeta fixtures travel inside the vector so both libraries see
+  # an identical universe.
+
+  VECTORS["name_to_asset"]["cases"].each_with_index do |vec, i|
+    define_method(:"test_name_to_asset_spot_#{i}") do
+      info = Hyperliquid::Info.new(skip_ws: true)
+      stub_info_request("meta", {}, VECTORS["name_to_asset"]["meta"])
+      stub_info_request("spotMeta", {}, VECTORS["name_to_asset"]["spot_meta"])
+      stub_info_request("perpDexs", {}, [])
+
+      assert_equal vec["asset"], info.name_to_asset(vec["name"]),
+                   "name_to_asset(#{vec["name"]}) mismatch with Python SDK"
+    end
+  end
+
   private
+
+  def stub_info_request(type, extra_params, response_body)
+    stub_request(:post, "https://api.hyperliquid.xyz/info")
+      .with(body: { type: type }.merge(extra_params).to_json)
+      .to_return(status: 200, body: response_body.to_json, headers: { "Content-Type" => "application/json" })
+  end
 
   def symbolize_order_type(order_type)
     if order_type.key?("limit") || order_type.key?(:limit)
