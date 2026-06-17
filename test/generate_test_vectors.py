@@ -36,6 +36,7 @@ from hyperliquid.utils.signing import (
     sign_user_set_abstraction_action,
 )
 from hyperliquid.utils.constants import MAINNET_API_URL
+from hyperliquid.info import Info
 
 # Deterministic key for reproducible tests
 PRIVATE_KEY = "0x0123456789012345678901234567890123456789012345678901234567890123"
@@ -735,6 +736,38 @@ for case in order_action_cases:
     })
 
 # =============================================================================
+# 9. NAME -> ASSET (spot index mapping on a sparse universe)
+# =============================================================================
+# The spot universe is sparse: an entry's array position is NOT its permanent
+# `index` field. The order asset id must be 10_000 + index, never position.
+# Build the SDK Info fully offline by passing meta + spot_meta and leaving
+# perp_dexs at its default (None) -- any non-None perp_dexs triggers a live
+# self.perp_dexs() network call in 0.22.0.
+NAME_TO_ASSET_PERP_META = {
+    "universe": [{"name": "BTC", "szDecimals": 5}, {"name": "ETH", "szDecimals": 4}]
+}
+NAME_TO_ASSET_SPOT_META = {
+    "universe": [
+        {"name": "PURR/USDC", "index": 0, "tokens": [0, 1]},   # canonical, position 0
+        {"name": "@107", "index": 107, "tokens": [2, 1]},      # position 1, index 107 (HYPE/USDC)
+    ],
+    "tokens": [
+        {"name": "PURR", "index": 0, "szDecimals": 0},
+        {"name": "USDC", "index": 1, "szDecimals": 8},
+        {"name": "HYPE", "index": 2, "szDecimals": 2},
+    ],
+}
+_offline_info = Info(skip_ws=True, meta=NAME_TO_ASSET_PERP_META, spot_meta=NAME_TO_ASSET_SPOT_META)
+vectors["name_to_asset"] = {
+    "meta": NAME_TO_ASSET_PERP_META,
+    "spot_meta": NAME_TO_ASSET_SPOT_META,
+    "cases": [
+        {"name": name, "asset": _offline_info.name_to_asset(name)}
+        for name in ["@107", "HYPE/USDC", "BTC"]
+    ],
+}
+
+# =============================================================================
 # OUTPUT
 # =============================================================================
 
@@ -750,6 +783,7 @@ summary = {
     "user_signed_signatures": len(vectors["user_signed_signatures"]),
     "phantom_agent": len(vectors["phantom_agent"]),
     "order_wires_to_order_action": len(vectors["order_wires_to_order_action"]),
+    "name_to_asset": len(vectors["name_to_asset"]["cases"]),
 }
 vectors["_summary"] = summary
 

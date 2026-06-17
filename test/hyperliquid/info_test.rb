@@ -3,6 +3,23 @@
 require "test_helper"
 
 class Hyperliquid::InfoTest < Minitest::Test
+  # Sparse spot universe where array position != permanent `index` field.
+  # PURR/USDC sits at position 0 (index 0); @107 (HYPE/USDC) sits at position 1
+  # but has permanent index 107 -> asset id 10_107.
+  SPARSE_SPOT_META = {
+    "universe" => [
+      { "name" => "PURR/USDC", "index" => 0,   "tokens" => [0, 1] }, # canonical, pos 0
+      { "name" => "@107",      "index" => 107, "tokens" => [2, 1] }  # pos 1, index 107 (HYPE/USDC)
+    ],
+    "tokens" => [
+      { "name" => "PURR", "index" => 0, "szDecimals" => 0 },
+      { "name" => "USDC", "index" => 1, "szDecimals" => 8 },
+      { "name" => "HYPE", "index" => 2, "szDecimals" => 2 }
+    ]
+  }.freeze
+  PERP_META = { "universe" => [{ "name" => "BTC", "szDecimals" => 5 },
+                               { "name" => "ETH", "szDecimals" => 4 }] }.freeze
+
   def setup
     @info = Hyperliquid::Info.new(skip_ws: true)
   end
@@ -166,11 +183,12 @@ class Hyperliquid::InfoTest < Minitest::Test
   end
 
   def test_spot_coin_to_asset_mapping
-    stub_info_request("spotMeta", {},
-                      { "universe" => [{ "name" => "PURR/USDC" }, { "name" => "HYPE/USDC" }] })
+    stub_info_request("spotMeta", {}, SPARSE_SPOT_META)
 
+    # Keyed by the universe name; asset id is 10_000 + the entry's `index` field,
+    # NOT its position. @107 is at position 1 but resolves to 10_107.
     assert_equal 10_000, @info.spot_coin_to_asset("PURR/USDC")
-    assert_equal 10_001, @info.spot_coin_to_asset("HYPE/USDC")
+    assert_equal 10_107, @info.spot_coin_to_asset("@107")
   end
 
   def test_sub_accounts
@@ -290,12 +308,31 @@ class Hyperliquid::InfoTest < Minitest::Test
     stub_info_request("meta", {},
                       { "universe" => [{ "name" => "BTC", "szDecimals" => 5 }, { "name" => "ETH", "szDecimals" => 4 }] })
     stub_info_request("spotMeta", {},
-                      { "universe" => [{ "name" => "PURR/USDC" }], "tokens" => [] })
+                      { "universe" => [{ "name" => "PURR/USDC", "index" => 0 }], "tokens" => [] })
     stub_info_request("perpDexs", {}, [])
 
     assert_equal 0, @info.name_to_asset("BTC")
     assert_equal 1, @info.name_to_asset("ETH")
     assert_equal 10_000, @info.name_to_asset("PURR/USDC")
+  end
+
+  def test_name_to_asset_spot_uses_index_field
+    stub_info_request("meta", {}, PERP_META)
+    stub_info_request("spotMeta", {}, SPARSE_SPOT_META)
+    stub_info_request("perpDexs", {}, [])
+
+    # Real order path: @107 sits at array position 1 but must resolve to its
+    # permanent index (107) -> asset id 10_107, not 10_001.
+    assert_equal 10_107, @info.name_to_asset("@107")
+  end
+
+  def test_name_to_asset_resolves_friendly_spot_name
+    stub_info_request("meta", {}, PERP_META)
+    stub_info_request("spotMeta", {}, SPARSE_SPOT_META)
+    stub_info_request("perpDexs", {}, [])
+
+    # Friendly BASE/QUOTE name resolves through name_to_coin (@107) to 10_107.
+    assert_equal 10_107, @info.name_to_asset("HYPE/USDC")
   end
 
   def test_name_to_asset_unknown_raises
@@ -314,6 +351,16 @@ class Hyperliquid::InfoTest < Minitest::Test
 
     assert_equal 5, @info.asset_to_sz_decimals(0) # BTC
     assert_equal 4, @info.asset_to_sz_decimals(1) # ETH
+  end
+
+  def test_asset_to_sz_decimals_spot
+    stub_info_request("meta", {}, PERP_META)
+    stub_info_request("spotMeta", {}, SPARSE_SPOT_META)
+    stub_info_request("perpDexs", {}, [])
+
+    # Spot szDecimals are keyed by the asset id (10_000 + index) with the BASE
+    # token's szDecimals. HYPE base -> 2. (Old code keyed by token index -> nil.)
+    assert_equal 2, @info.asset_to_sz_decimals(10_107)
   end
 
   def test_name_to_coin

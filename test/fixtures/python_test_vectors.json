@@ -1904,6 +1904,71 @@
       }
     }
   ],
+  "name_to_asset": {
+    "meta": {
+      "universe": [
+        {
+          "name": "BTC",
+          "szDecimals": 5
+        },
+        {
+          "name": "ETH",
+          "szDecimals": 4
+        }
+      ]
+    },
+    "spot_meta": {
+      "universe": [
+        {
+          "name": "PURR/USDC",
+          "index": 0,
+          "tokens": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "@107",
+          "index": 107,
+          "tokens": [
+            2,
+            1
+          ]
+        }
+      ],
+      "tokens": [
+        {
+          "name": "PURR",
+          "index": 0,
+          "szDecimals": 0
+        },
+        {
+          "name": "USDC",
+          "index": 1,
+          "szDecimals": 8
+        },
+        {
+          "name": "HYPE",
+          "index": 2,
+          "szDecimals": 2
+        }
+      ]
+    },
+    "cases": [
+      {
+        "name": "@107",
+        "asset": 10107
+      },
+      {
+        "name": "HYPE/USDC",
+        "asset": 10107
+      },
+      {
+        "name": "BTC",
+        "asset": 0
+      }
+    ]
+  },
   "_summary": {
     "float_to_wire": 20,
     "float_to_int_for_hashing": 10,
@@ -1914,6 +1979,7 @@
     "l1_signatures": 37,
     "user_signed_signatures": 22,
     "phantom_agent": 2,
-    "order_wires_to_order_action": 3
+    "order_wires_to_order_action": 3,
+    "name_to_asset": 3
   }
 }
